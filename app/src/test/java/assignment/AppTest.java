@@ -43,12 +43,28 @@ class AppTest {
   }
 
   @Test
+  void testRemoveIndex0() {
+    var list = new LinkedList();
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    App.remove(list, 0);
+
+    assertEquals(2, list.head.data);
+    assertEquals(3, list.head.next.data);
+  }
+
+  @Test
   void testReverse() {
     var list = new LinkedList();
     list.append(1);
     list.append(2);
     list.append(3);
     var reversed = App.reverse(list);
+
+    System.out.println(reversed.head.data);
+    System.out.println(reversed.head.next.data);
+    System.out.println(reversed.head.next.next.data);
 
     assertEquals(3, reversed.head.data);
     assertEquals(2, reversed.head.next.data);
