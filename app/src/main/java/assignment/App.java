@@ -6,11 +6,11 @@ public class App {
     LinkedList.Node item = list.head; // O(1)
     int length = list.length();
     for (int i = 0; i < length; i++) { // O(n)
-      if(i==index){
+      if (i == index) {
         return item.data;
-      } // This would make it so that if index is in the bounds of length then it will return the data other wise return null right?
+      } // This would make it so that if index is in the bounds of length then it will return the
+      // data other wise return null right?
       item = item.next; // O(1)
-
     }
     return item.data; // O(1)
   } // Algorithmic Complexity = O(n)
@@ -19,7 +19,7 @@ public class App {
     LinkedList.Node item = list.head; // O(1)
     int length = list.length();
     for (int i = 0; i < length; i++) { // O(n)
-      if(i==index){
+      if (i == index) {
         item.data = value;
       }
       item = item.next; // O(1)
