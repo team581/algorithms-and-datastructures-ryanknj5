@@ -4,18 +4,26 @@ public class App {
 
   public static int get(LinkedList list, int index) {
     LinkedList.Node item = list.head; // O(1)
-    for (int i = 0; i < index; i++) { // O(n)
+    int length = list.length();
+    for (int i = 0; i < length; i++) { // O(n)
+      if(i==index){
+        return item.data;
+      } // This would make it so that if index is in the bounds of length then it will return the data other wise return null right?
       item = item.next; // O(1)
+
     }
     return item.data; // O(1)
   } // Algorithmic Complexity = O(n)
 
   public static void set(LinkedList list, int index, int value) {
     LinkedList.Node item = list.head; // O(1)
-    for (int i = 0; i < index; i++) { // O(n)
+    int length = list.length();
+    for (int i = 0; i < length; i++) { // O(n)
+      if(i==index){
+        item.data = value;
+      }
       item = item.next; // O(1)
     }
-    item.data = value; // O(1)
   } // Algorithmic Complexity = O(n)
 
   public static void remove(LinkedList list, int index) {
@@ -35,14 +43,24 @@ public class App {
   } // Algorithmic Complexity = O(n)
 
   public static LinkedList reverse(LinkedList list) {
-    LinkedList reversedList = new LinkedList(); // O(1)
+    // LinkedList reversedList = new LinkedList(); // O(1)
+    // LinkedList.Node item = list.head; // O(1)
+    // int length = list.length();
+    // for (int i = 0; i < length; i++) { // O(n)
+    //   reversedList.prepend(item.data); // O(1)
+    //   item = item.next; // O(1)
+    // }
+    // return reversedList; // O(1)
     LinkedList.Node item = list.head; // O(1)
-
-    for (int i = 0; i < list.length(); i++) { // O(n)
-      reversedList.prepend(item.data); // O(1)
+    int length = list.length();
+    int counter = 0;
+    for (int i = 0; i < length; i++) { // O(n)
+      list.prepend(item.data); // O(1)
+      counter++;
+      remove(list, counter);
       item = item.next; // O(1)
     }
-    return reversedList; // O(1)
+    return list; // O(1)
   } // Algorithmic Complexity = O(n)
 
   public static boolean isSortedAscending(LinkedList list) {
